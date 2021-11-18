@@ -1,7 +1,3 @@
-/* 删除数据库 */
-if exists (select * from sys.databases where name = 'make')
-	drop database make if exists (select * from sys.databases where name = 'make')
-	drop database make
 
 /* 创建数据库 */
 create database make;
