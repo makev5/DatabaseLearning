@@ -99,12 +99,12 @@ from spj,p
 where jno='j1' and p.pno=spj.pno and color='红'
 
 --(4)求没有使用天津供应商生产的红色零件的工程号JNO
-select jno
-from j
+select distinct jno
+from s,spj,p
 where jno not in(
 select jno
-from j
-where city='天津')
+from j,p
+where city='天津' and p.color='红') and p.pno=spj.pno and s.sno=spj.sno
 
 --(5)求至少用了供应商S1所供应的全部零件的工程号JNO
 select j.jno
